@@ -656,123 +656,138 @@
             color: var(--accent);
         }
 
-        /* Experience Section */
-        .timeline {
-            position: relative;
+        /* ===== EXPERIENCE SECTION - ENHANCED ===== */
+        .experience-wrapper {
             max-width: 900px;
             margin: 0 auto;
         }
 
-        .timeline::before {
-            content: '';
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 2px;
-            height: 100%;
-            background: var(--gradient-1);
-            opacity: 0.3;
-        }
-
-        .timeline-item {
-            position: relative;
-            margin-bottom: 3rem;
-            width: 50%;
-            padding: 0 3rem;
-        }
-
-        .timeline-item:nth-child(odd) {
-            left: 0;
-            text-align: right;
-        }
-
-        .timeline-item:nth-child(even) {
-            left: 50%;
-            text-align: left;
-        }
-
-        .timeline-dot {
-            position: absolute;
-            width: 16px;
-            height: 16px;
-            border-radius: 50%;
-            background: white;
-            border: 3px solid var(--accent);
-            top: 0;
-            box-shadow: 0 0 15px var(--accent-glow);
-        }
-
-        .timeline-item:nth-child(odd) .timeline-dot {
-            right: -8px;
-        }
-
-        .timeline-item:nth-child(even) .timeline-dot {
-            left: -8px;
-        }
-
-        .timeline-content {
+        .exp-card {
             background: var(--card-bg);
             border: 1px solid var(--card-border);
-            border-radius: 16px;
-            padding: 2rem;
+            border-radius: 24px;
+            padding: 3rem;
             backdrop-filter: blur(10px);
+            box-shadow: var(--shadow-lg);
             transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .exp-card:hover {
+            box-shadow: var(--shadow-xl);
+            border-color: rgba(13, 148, 136, 0.2);
+        }
+
+        .exp-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--gradient-1);
+        }
+
+        .exp-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .exp-title-block h3 {
+            font-size: 1.6rem;
+            color: var(--text);
+            margin-bottom: 0.25rem;
+        }
+
+        .exp-company {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--accent);
+            font-weight: 600;
+            font-size: 1rem;
+        }
+
+        .exp-company i {
+            font-size: 0.9rem;
+        }
+
+        .exp-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: rgba(13, 148, 136, 0.08);
+            border: 1px solid rgba(13, 148, 136, 0.2);
+            border-radius: 50px;
+            font-size: 0.85rem;
+            color: var(--accent);
+            white-space: nowrap;
+        }
+
+        .exp-badge i {
+            font-size: 0.75rem;
+        }
+
+        .exp-summary {
+            color: var(--text-muted);
+            font-size: 1rem;
+            line-height: 1.7;
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--card-border);
+        }
+
+        .exp-achievements {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+
+        .exp-achievement {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            padding: 1rem;
+            background: var(--bg);
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .exp-achievement:hover {
+            border-color: rgba(13, 148, 136, 0.3);
+            transform: translateY(-2px);
             box-shadow: var(--shadow);
         }
 
-        .timeline-content:hover {
-            border-color: rgba(13, 148, 136, 0.3);
-            transform: translateY(-3px);
-            box-shadow: var(--shadow-xl);
-        }
-
-        .timeline-date {
-            display: inline-block;
-            padding: 0.3rem 0.8rem;
+        .exp-achievement-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
             background: rgba(13, 148, 136, 0.08);
-            border-radius: 50px;
-            font-size: 0.8rem;
-            color: var(--accent);
-            margin-bottom: 0.75rem;
-        }
-
-        .timeline-title {
-            font-size: 1.3rem;
-            margin-bottom: 0.25rem;
-            color: var(--text);
-        }
-
-        .timeline-company {
-            color: var(--accent);
-            font-weight: 600;
-            font-size: 0.95rem;
-            margin-bottom: 1rem;
-        }
-
-        .timeline-desc {
-            color: var(--text-muted);
-            font-size: 0.9rem;
-            line-height: 1.7;
-        }
-
-        .timeline-achievements {
-            list-style: none;
-            margin-top: 1rem;
-        }
-
-        .timeline-achievements li {
-            padding: 0.4rem 0;
-            color: var(--text-dim);
-            font-size: 0.85rem;
             display: flex;
-            align-items: flex-start;
-            gap: 0.5rem;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent);
+            font-size: 1rem;
+            flex-shrink: 0;
         }
 
-        .timeline-achievements li::before {
-            content: '▸';
-            color: var(--accent);
-            flex-shrink: 0;
+        .exp-achievement-text {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        .exp-achievement-text strong {
+            color: var(--text);
+            font-weight: 600;
         }
 
         /* Education & Certs */
@@ -865,6 +880,27 @@
         .cert-info p {
             font-size: 0.8rem;
             color: var(--text-dim);
+        }
+
+        .cert-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            margin-top: 0.5rem;
+            font-size: 0.8rem;
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .cert-link:hover {
+            gap: 0.7rem;
+            color: var(--accent-secondary);
+        }
+
+        .cert-link i {
+            font-size: 0.7rem;
         }
 
         /* Contact Section */
@@ -1079,6 +1115,10 @@
             .contact-visual {
                 order: -1;
             }
+
+            .exp-achievements {
+                grid-template-columns: 1fr;
+            }
         }
 
         @media (max-width: 768px) {
@@ -1117,25 +1157,16 @@
                 grid-template-columns: 1fr;
             }
 
-            .timeline::before {
-                left: 20px;
-            }
-
-            .timeline-item {
-                width: 100%;
-                left: 0 !important;
-                padding-left: 3.5rem;
-                padding-right: 0;
-                text-align: left !important;
-            }
-
-            .timeline-dot {
-                left: 12px !important;
-                right: auto !important;
-            }
-
             section {
                 padding: 4rem 1.5rem;
+            }
+
+            .exp-card {
+                padding: 2rem 1.5rem;
+            }
+
+            .exp-header {
+                flex-direction: column;
             }
         }
 
@@ -1158,8 +1189,13 @@
             .stat-number {
                 font-size: 1.5rem;
             }
+
+            .exp-achievements {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
+<base target="_blank">
 </head>
 <body>
     <!-- Background Animation -->
@@ -1390,25 +1426,65 @@
                 <p class="section-desc">My professional journey in data analytics and credit risk management.</p>
             </div>
 
-            <div class="timeline">
-                <div class="timeline-item animate-on-scroll">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <span class="timeline-date">June 2023 – Present</span>
-                        <h3 class="timeline-title">Data Analyst</h3>
-                        <div class="timeline-company">Seacoast Bank</div>
-                        <div class="timeline-desc">
-                            Credit Risk & Portfolio Performance Monitoring — Analyzing multi-million USD mortgage portfolios 
-                            and delivering data-driven insights for risk management and strategic decisions.
+            <div class="experience-wrapper animate-on-scroll">
+                <div class="exp-card">
+                    <div class="exp-header">
+                        <div class="exp-title-block">
+                            <h3>Data Analyst</h3>
+                            <div class="exp-company">
+                                <i class="fas fa-building"></i>
+                                Seacoast Bank
+                            </div>
                         </div>
-                        <ul class="timeline-achievements">
-                            <li>Developed and automated 12+ portfolio performance reports using SQL, Python, and Alteryx, reducing manual effort by 70%</li>
-                            <li>Designed and maintained 10+ Power BI dashboards for senior management, reducing ad-hoc requests by 40%</li>
-                            <li>Performed ETL automation across mortgage systems, improving data accuracy by 30% and reducing processing time by 60%</li>
-                            <li>Conducted segmentation on 500,000+ mortgage accounts to identify high-risk segments</li>
-                            <li>Improved early-risk detection by 15% through delinquency roll rate analysis</li>
-                            <li>Enhanced decision-making turnaround by 35% through optimized SQL queries</li>
-                        </ul>
+                        <div class="exp-badge">
+                            <i class="fas fa-calendar"></i>
+                            June 2023 – Present
+                        </div>
+                    </div>
+
+                    <p class="exp-summary">
+                        Credit Risk & Portfolio Performance Monitoring — Analyzing multi-million USD mortgage portfolios 
+                        and delivering data-driven insights for risk management and strategic decisions. Collaborating with 
+                        Credit Risk, Servicing, Finance, and Compliance teams to optimize portfolio performance.
+                    </p>
+
+                    <div class="exp-achievements">
+                        <div class="exp-achievement">
+                            <div class="exp-achievement-icon"><i class="fas fa-robot"></i></div>
+                            <div class="exp-achievement-text">
+                                Automated <strong>12+ portfolio performance reports</strong> using SQL, Python, and Alteryx, reducing manual effort by <strong>70%</strong>
+                            </div>
+                        </div>
+                        <div class="exp-achievement">
+                            <div class="exp-achievement-icon"><i class="fas fa-chart-line"></i></div>
+                            <div class="exp-achievement-text">
+                                Built <strong>10+ Power BI dashboards</strong> for senior management, cutting ad-hoc requests by <strong>40%</strong>
+                            </div>
+                        </div>
+                        <div class="exp-achievement">
+                            <div class="exp-achievement-icon"><i class="fas fa-database"></i></div>
+                            <div class="exp-achievement-text">
+                                Performed ETL automation across systems, improving data accuracy by <strong>30%</strong> and reducing processing time by <strong>60%</strong>
+                            </div>
+                        </div>
+                        <div class="exp-achievement">
+                            <div class="exp-achievement-icon"><i class="fas fa-users"></i></div>
+                            <div class="exp-achievement-text">
+                                Segmented <strong>500,000+ mortgage accounts</strong> using credit scores, LTV, property, and geographic attributes
+                            </div>
+                        </div>
+                        <div class="exp-achievement">
+                            <div class="exp-achievement-icon"><i class="fas fa-shield-halved"></i></div>
+                            <div class="exp-achievement-text">
+                                Improved <strong>early-risk detection by 15%</strong> through delinquency roll rate and early payment default analysis
+                            </div>
+                        </div>
+                        <div class="exp-achievement">
+                            <div class="exp-achievement-icon"><i class="fas fa-bolt"></i></div>
+                            <div class="exp-achievement-text">
+                                Optimized SQL queries to enhance <strong>decision-making turnaround by 35%</strong>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1441,18 +1517,48 @@
 
                 <div class="cert-card animate-on-scroll">
                     <h3><i class="fas fa-certificate"></i> Certifications</h3>
+
                     <div class="cert-item">
                         <div class="cert-icon"><i class="fas fa-database"></i></div>
                         <div class="cert-info">
-                            <h4>SQL Certification</h4>
-                            <p>HackerRank — Basic, Intermediate & Advanced</p>
+                            <h4>SQL (Basic)</h4>
+                            <p>HackerRank</p>
+                            <a href="https://www.hackerrank.com/certificates/056be08d8547" target="_blank" class="cert-link">
+                                View Certificate <i class="fas fa-arrow-right"></i>
+                            </a>
                         </div>
                     </div>
+
+                    <div class="cert-item">
+                        <div class="cert-icon"><i class="fas fa-database"></i></div>
+                        <div class="cert-info">
+                            <h4>SQL (Intermediate)</h4>
+                            <p>HackerRank</p>
+                            <a href="https://www.hackerrank.com/certificates/ea8d1bb807e4" target="_blank" class="cert-link">
+                                View Certificate <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="cert-item">
+                        <div class="cert-icon"><i class="fas fa-database"></i></div>
+                        <div class="cert-info">
+                            <h4>SQL (Advanced)</h4>
+                            <p>HackerRank</p>
+                            <a href="https://www.hackerrank.com/certificates/0bd51de48567" target="_blank" class="cert-link">
+                                View Certificate <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+
                     <div class="cert-item">
                         <div class="cert-icon"><i class="fas fa-cogs"></i></div>
                         <div class="cert-info">
                             <h4>Alteryx Designer Core</h4>
-                            <p>Alteryx Designer Core Certification</p>
+                            <p>Alteryx</p>
+                            <a href="https://www.credly.com/users/monisha-naik.e66d8f18/badges/" target="_blank" class="cert-link">
+                                View Badge <i class="fas fa-arrow-right"></i>
+                            </a>
                         </div>
                     </div>
                 </div>
